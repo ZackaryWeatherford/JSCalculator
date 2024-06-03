@@ -1,0 +1,10 @@
+.lb-bk{
+    background: rgb(239, 251, 255);
+    background: radial-gradient(circle, rgb(245, 252, 255) 0%, rgb(243, 253, 255) 100%);
+}
+
+.lb-gradient-color{
+    background: -webkit-linear-gradient(0deg, rgb(33, 144, 255) 0%, rgb(119, 203, 255) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

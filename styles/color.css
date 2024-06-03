@@ -1,0 +1,40 @@
+.light-black-color{
+    color: rgb(25, 25, 25);
+}
+
+.dark-gray-color{
+    color: rgb(91, 91, 91);
+}
+
+.bk-light-gray{
+    background: rgb(255,255,255);
+    background: linear-gradient(176deg, rgba(255,255,255,1) 0%, rgba(209,209,209,1) 100%);
+}
+
+.white-font{
+    color: white;
+}
+
+.lightBlue-font{
+    color: rgb(95, 180, 255);
+}
+
+.darkBlue-font{
+    color: rgb(95, 180, 255);
+}
+
+.box-blue{
+    box-shadow: 0px 0px 15px 1px rgb(130, 192, 255);
+}
+
+.bk-white{
+    background-color: white;
+}
+
+.rmv-bk{
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.border-lb{
+    border-color: rgb(130, 192, 255);
+}

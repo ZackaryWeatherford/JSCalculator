@@ -1,0 +1,31 @@
+.lb-wh-hover{
+    transition: 150ms;
+}
+.lb-wh-hover:hover{
+    color:white;
+    background-color: rgb(130, 192, 255);
+}
+
+.lb-shadow-hover{
+    transition: 150ms;
+}
+
+.lb-shadow-hover:hover{
+    box-shadow: 0px 0px 15px 4px rgb(130, 192, 255);
+}
+
+.pointer{
+}
+
+.pointer:hover{
+    cursor: pointer;
+}
+
+.ul-hover{
+
+}
+
+.ul-hover:hover{
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
