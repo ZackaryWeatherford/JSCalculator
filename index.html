@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="styles/text.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/color.css">
-    <link rel="stylesheet" href="styles/">
+    <link rel="stylesheet" href="styles/hover.css">
+
+    <script src="scripts/script.js"></script>
 
      <!--Font link-->
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,56 +25,55 @@
 <body>
 
     <div class="calculator-wrapper">   
-        <div class="flex bk-white calculator">
+        <div class="white-shadow flex bk-white calculator">
 
             <!--Text Area-->
             <div class="bk-light-gray w-100 h-25 right-text">
-                <p class="roboto-regular prev-text font-20px mt-4vh dark-gray-color">1 + 1</p>
-                <p class="roboto-bold current-text font-40px no-margin">2</p>
+                <p class="roboto-regular prev-text font-20px mt-4vh dark-gray-color">.</p>
+                <p class="roboto-bold current-text font-40px no-margin">.</p>
             </div>
 
             <!--Buttons-->
-
             <div class="flex flex-direction-column">
 
                 <!--First Row-->
                 <div class="flex-direction-row no-padding">
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">C</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">()</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">%</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">&#247; </button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover light-red-hover" onclick = "getButtonInput(this)">C</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">()</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">%</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">&#247; </button>
                 </div>
                 
                 <!--Second Row-->
                 <div class="flex-direction-row no-padding">
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">1</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">2</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">3</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">X</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">1</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">2</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">3</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">x</button>
                 </div>
 
                 <!--Third Row-->
                 <div class="flex-direction-row no-padding">
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">4</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">5</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">6</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">+</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">4</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">5</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">6</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">+</button>
                 </div>
 
                 <!--Fourth Row-->
                 <div class="flex-direction-row no-padding">
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">7</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px ">8</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px ">9</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">-</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">7</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">8</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">9</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">-</button>
                 </div>
 
                 <!--Fifth Row-->
                 <div class="flex-direction-row no-padding">
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">.</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px ">B</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px ">C</button>
-                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px">D</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">+/-</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">0</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover" onclick = "getButtonInput(this)">.</button>
+                    <button class="roboto-bold button-padding no-border no-margin bk-white font-20px gray-hover light-blue-hover" onclick = "getButtonInput(this)">=</button>
                 </div>
             
             </div>

@@ -38,3 +38,20 @@
 .border-lb{
     border-color: rgb(130, 192, 255);
 }
+
+.bk-light-blue{
+    background-color: rgba(158, 223, 255, 0.412);
+}
+
+.white-shadow{
+    box-shadow: 0px 0px 10px 1px rgb(224, 224, 224);
+}
+
+.dark-gray-action{
+   
+}
+
+.dark-gray-action:active{
+    background-color: rgb(195, 195, 195);
+}
+

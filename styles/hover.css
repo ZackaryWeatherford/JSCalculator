@@ -1,17 +1,32 @@
-.lb-wh-hover{
+.gray-hover{
     transition: 150ms;
 }
-.lb-wh-hover:hover{
-    color:white;
-    background-color: rgb(130, 192, 255);
+.gray-hover:hover{
+    background-color: rgb(230, 230, 230);
 }
 
-.lb-shadow-hover{
+.light-red-hover{
     transition: 150ms;
 }
 
-.lb-shadow-hover:hover{
-    box-shadow: 0px 0px 15px 4px rgb(130, 192, 255);
+.light-red-hover:hover{
+    background-color: rgb(255, 140, 140);
+}
+
+.light-blue-hover{
+    transition: 150ms;
+}
+
+.light-blue-hover:hover{
+    background-color: rgb(102, 196, 255);
+}
+
+.white-shadow-hover{
+    transition: 150ms;
+}
+
+.white-shadow-hover:hover{
+    box-shadow: 0px 0px 15px 4px rgb(224, 224, 224);
 }
 
 .pointer{
