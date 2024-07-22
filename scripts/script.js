@@ -1,80 +1,161 @@
 
-//Inputs
-let prevInput;
-let currentInput = '';
+const currentDisplay = document.getElementById('input-field');
+const prevDisplay = document.getElementById('previous-field');
 
-//DOM Vars
-const inputField = document.querySelector("#input-field");
-const buttons = document.querySelector("#buttons-view");
+let currentCalculation = '0';
+let prevNum = ' ';
 
-//Add event listeners to buttons
-const buttonsEvent = () => {
+const operators = ['+', '-', '*', '÷'];
 
-    buttons.addEventListener("click", (event) => {
-        updateInput(event.target.textContent);
-    });
+//   _ = negative number
 
+
+function insert(newElement){
+
+    updateCurrentCalculation(newElement);
+    
+    updateDisplay();
 }
 
-buttonsEvent();
+function updateCurrentCalculation(newElement){
 
-//Logic for button input
-const updateInput = (buttonText) => {
-
-    //Add number buttons
-    if(!Number.isNaN(Number(buttonText))){
-        currentInput += buttonText;
+    //Numbers
+    if(!isNaN(newElement)){
+        //Replace 0 placeholder or just concat new number
+        if(currentCalculation === '0' || currentCalculation === '_0')
+            currentCalculation = newElement;
+        else
+            currentCalculation += newElement;
+        return;
     }
 
     //Operators
-    if(buttonText === '+' || buttonText === '-' || buttonText === 'x' || buttonText === '&#247;'){
-        if(currentInput.length === 0)
-            return;
-
-        //Get last char inputed
-        const prevChar = currentInput.charAt(currentInput.length-1);
-
-        //Check if previous input was a parenthesis or a number to allow operator
-        if(prevChar === ')' || !Number.isNaN(Number(prevChar))){
-            currentInput += buttonText;
-        }
+    if(operators.includes(newElement)){
+        if(!isNaN(currentCalculation[currentCalculation.length-1]))
+            currentCalculation += newElement;
+        return;
     }
 
-    //Update inputField and resize text
-    inputField.innerHTML = currentInput;
-    resize();
-
-    //Deal with special chars
-    switch(buttonText){
-        case 'C':
-            currentInput = '';
-            document.querySelector("#input-field").innerHTML = "0";
-            document.querySelector("#previous-field").innerHTML = "&nbsp;"; 
-            break;
-        case '=':
-            calculateAnswer();
-            break;
+    //Clear
+    if(newElement === 'C'){
+        currentCalculation = '0';
+        return;
     }
 
+    //Switch current numbers sign
+    if(newElement === '+/-'){
+        switchSigns();
+        return;
+    }
+
+    //Make number into a decimal number
+    if (newElement === '.'){
+        addDecimal();
+        return;
+    }
+
+    //
+    if(newElement === '%'){
+        makePercent(getNumber(currentCalculation.length-1));
+    }
 
 }
 
 
-//Parse the currentInput and recursively solve anything in parenthesis
-function calculateAnswer(){
+function switchSigns(){
+
+    // If current calculation is just one number then add negative to beggining
+    if(currentCalculation.length == 1){
+        currentCalculation = '_' + currentCalculation;
+        return;
+    }
+
+    let i = currentCalculation.length-1;
+
+    while(!isNaN(currentCalculation[i]) || currentCalculation[i] === '.'){
+        if(i <= 0)
+            break;
+        i--;
+    }
+
+    if(currentCalculation[i] === '_'){
+        currentCalculation = currentCalculation.slice(0,i) + currentCalculation.slice(i+1);
+        return;
+    }
+
+    if(i !== 0)
+        i++;
+     
+    currentCalculation = currentCalculation.slice(0,i) + '_' + currentCalculation.slice(i);
+}
+
+function addDecimal(){
+    let i = currentCalculation.length - 1;
+    while(!isNaN(currentCalculation[i])){
+        i--;
+    }
+    if(currentCalculation[i] !== '.')
+        currentCalculation += '.';
+    return;
+}
+
+
+function makePercent(number){
+    let numStart = currentCalculation.length - number.length;
+    number = number / 100;
+
+    currentCalculation = currentCalculation.slice(0, )
+}
+
+
+function updateDisplay(){
+
+    let formattedCalculation;
+
+    //Format the calculation for user view
+
+    for(let i = 0; i < currentCalculation.length; i++){
+
+    }
+
+    currentDisplay.textContent = currentCalculation;
+    prevDisplay.innerHTML = prevNum;
 
 }
 
-//Resize text in input field when overflow is about to happen
-function resize(button){
+function getNumber(charIndex){
 
-    if(currentInput.length > 15)
-        document.getElementById("input-field").style.fontSize = "30px";
-    else
-        document.getElementById("input-field").style.fontSize = "40px";
-}
+    if(isNaN(currentCalculation[charIndex]) && currentCalculation[charIndex] !== '.' && currentCalculation[charIndex] !== '_'){
+        return;
+    }
 
-//Apply text spacing between numbers and operators
-const applyTextSpacing = () => {
+    let number = currentCalculation[charIndex];
+    let i = charIndex - 1;
 
+    //Grab values from left
+    while(!isNaN(currentCalculation[i]) || currentCalculation[i] === '.' || currentCalculation[i] === '_'){
+        number = currentCalculation[i] + number;
+
+        if(i <= 0)
+            break;
+        i--;
+    }
+
+    i = charIndex + 1;
+
+    //Grab values from right
+    while(!isNaN(currentCalculation[i]) || currentCalculation[i] === '.' || currentCalculation[i] === '_'){
+    number = number + currentCalculation[i];
+
+    if(i <= 0)
+        break;
+    i++;
+    }
+
+    //Convert _ to -
+    if(number[0] == '_'){
+        number = '-' + number.slice(1);
+    }
+
+    return Number(number);
 }
